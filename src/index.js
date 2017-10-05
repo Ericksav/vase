@@ -1,1 +1,3 @@
-console.log('Si Sirvo')
+import './home.scss';
+
+console.log('Si Sirvo');
