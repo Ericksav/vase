@@ -7,28 +7,37 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  // module:{
-  //   rules: [
-  //     {
-  //       test: /\.css$/,
-  //       use: [
-  //         { loader: "style-loader" },
-  //         { loader: "css-loader" }
-  //       ]
-  //     }
-  //   ]
-  // },
   module: {
-      rules: [{
+      rules: [
+        {
           test: /\.scss$/,
-          use: [{
+          use: [
+            {
               loader: "style-loader" // creates style nodes from JS strings
-          }, {
+            }, 
+            {
               loader: "css-loader" // translates CSS into CommonJS
-          }, {
+            }, {
               loader: "sass-loader" // compiles Sass to CSS
-          }]
-      }]
+            },
+            // {
+            //   loader: 'style-loader!css-loader!autoprefixer-loader'
+            // },
+            // {
+            //   loader: 'css-loader!autoprefixer-loader?browsers=last 2 versions'
+            // }
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: () => [
+                    require('autoprefixer')(),
+                ]
+              }
+            }
+          ]
+        }
+      ]
   },
   plugins: [
   	new BrowserSyncPlugin({
