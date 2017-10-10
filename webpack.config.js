@@ -36,6 +36,16 @@ module.exports = {
               }
             }
           ]
+        },
+        {
+          test: /\.(jpe?g|png|gif)$/i,
+          loader:"file-loader",
+          query:{
+            name:'[name].[ext]',
+            outputPath:'images/'
+            //the images will be emmited to public/assets/images/ folder 
+            //the images will be put in the DOM <style> tag as eg. background: url(assets/images/image.png); 
+          }
         }
       ]
   },
@@ -51,6 +61,12 @@ module.exports = {
       	"./*.html",
         "./src/*.css"
       ]
+    }),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery'",
+      "window.$": "jquery"
     })
   ]
 };
