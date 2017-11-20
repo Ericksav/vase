@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
@@ -16,23 +17,18 @@ module.exports = {
               loader: "style-loader" // creates style nodes from JS strings
             }, 
             {
-              loader: "css-loader" // translates CSS into CommonJS
-            }, {
+              loader: 'css-loader' // translates CSS into CommonJS
+            },
+            {
               loader: "sass-loader" // compiles Sass to CSS
             },
-            // {
-            //   loader: 'style-loader!css-loader!autoprefixer-loader'
-            // },
-            // {
-            //   loader: 'css-loader!autoprefixer-loader?browsers=last 2 versions'
-            // }
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true,
-                plugins: () => [
-                    require('autoprefixer')(),
-                ]
+                ident: 'postcss',
+                plugins: (loader) => [
+                  require('postcss-cssnext')()
+                ], 
               }
             }
           ]
