@@ -3,7 +3,7 @@ const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './resources/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -11,7 +11,7 @@ module.exports = {
   module: {
       rules: [
         {
-          test: /\.scss$/,
+          test: /\.(sass|scss)$/,
           use: [
             {
               loader: "style-loader" // creates style nodes from JS strings
@@ -20,17 +20,16 @@ module.exports = {
               loader: 'css-loader' // translates CSS into CommonJS
             },
             {
-              loader: "sass-loader" // compiles Sass to CSS
-            },
-            {
               loader: 'postcss-loader',
               options: {
-                ident: 'postcss',
-                plugins: (loader) => [
-                  require('postcss-cssnext')()
-                ], 
+                plugins: () => [
+                  require('postcss-cssnext')(),
+                ]
               }
-            }
+            },
+            {
+              loader: "sass-loader" // compiles Sass to CSS
+            },
           ]
         },
         {

@@ -1,0 +1,20 @@
+.o-cover{
+	flex: 0 0 100%;
+	width: 100%;
+	background: linear-gradient(to bottom, #10131a, lighten(#10131a, 8));
+	padding: rem(100) 0 !important;
+	&__title{
+		font-weight: 900;
+		font-size: rem(200);
+		color: #66fcf1;
+		margin-bottom: rem(10);
+	}
+	&__name{
+		font-weight: 900;
+		font-size: rem(18);
+	}
+	p{
+		color: white;
+		text-align: center;
+	}
+}

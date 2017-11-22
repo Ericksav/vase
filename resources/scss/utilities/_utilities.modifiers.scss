@@ -1,0 +1,24 @@
+.u-margin{
+	&__none{
+		margin: 0;
+	}
+}
+
+.u-padding{
+	&__none{
+		padding: 0;
+	}
+}
+
+.u-half-flex{
+	flex: 0 0 100%;
+	width: 100%;
+	@include breakpoint(m) {
+		flex: 0 0 50%;
+		width: 50%;
+	}
+}
+.u-full-flex{
+	flex: 0 0 100%;
+	width: 100%;
+}
