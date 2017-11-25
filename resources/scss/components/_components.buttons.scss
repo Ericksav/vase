@@ -1,0 +1,34 @@
+.c-button{
+	&__transparent{
+		color: $gray-medium !important;
+		background-color: transparent;
+		border: 2px solid $gray-medium;
+		border-radius: 3px;
+		border-radius: 3px;
+		text-align: center;
+		&:hover,
+		&:active, 
+		&:focus{
+			background-color: transparent;
+			color: $gray-dark !important;
+			border-color: $gray-dark !important;
+		}
+	}
+	&__cta{
+		color: $gray-medium !important;
+		background-color: transparent;
+		border: 2px solid $gray-medium;
+		border-radius: 3px;
+		border-radius: 3px;
+		text-align: center;
+		width: rem(200);
+		padding: rem(20);
+		&:hover,
+		&:active, 
+		&:focus{
+			background-color: #01de9e;
+			color: #fff !important;
+			border-color: #01de9e !important;
+		}
+	}
+}

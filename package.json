@@ -11,6 +11,7 @@
     "autoprefixer-loader": "^3.2.0",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
+    "copy-webpack-plugin": "^4.2.3",
     "css-loader": "^0.28.7",
     "node-sass": "^4.5.3",
     "postcss": "^6.0.14",
@@ -26,6 +27,7 @@
     "last 2 versions"
   ],
   "dependencies": {
-    "huleos.css": "0.0.5"
+    "huleos.css": "0.0.5",
+    "imagemin-webpack-plugin": "^1.5.2"
   }
 }

@@ -1,0 +1,47 @@
+footer{
+	background: linear-gradient(to bottom, #10131a, lighten(#10131a, 8));
+	min-height: rem(80); 
+	color: $white;
+}
+
+.c-footer__up{
+	width: 100%;
+	padding: rem(60);
+	color: #fff;
+	text-align: center;
+	.c-footer__up-title{
+		color: #FFF;
+		font-weight: 700;
+		font-size: rem(50);
+		text-align: center;
+    width: 100%;
+    padding-bottom: rem-calc(5);
+	}
+	.c-footer__up-title::after{
+		content: '';
+	  background-color: #01de9e;
+	  position: absolute;
+	  width: 15%;
+	  height: rem(2);
+	  bottom: 62%;
+	  left: 40%;
+	}
+  @include breakpoint(s) {
+    padding: rem-calc(30);
+  }
+}
+.c-footer__down{
+	width: 100%;
+	background-color: transparent;
+	text-align: center;
+	background-color: #000; 
+	vertical-align: middle;
+	padding: 15px;
+	color: #fff;
+	a{
+		color: #fff;
+		&:hover{
+			color: #01de9e
+		}
+	}
+}

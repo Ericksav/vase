@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 const path = require('path');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './resources/index.js',
@@ -62,6 +64,18 @@ module.exports = {
       jQuery: "jquery",
       "window.jQuery": "jquery'",
       "window.$": "jquery"
-    })
+    }),
+    // Make sure that the plugin is after any plugins that add images
+    // Copy the images folder and optimize all the images
+    new ImageminPlugin({
+      disable: process.env.NODE_ENV !== 'production', // Disable during development
+      pngquant: {
+        quality: '70'
+      }
+    }),
+    new CopyWebpackPlugin([{
+      from: 'resources/img/'
+    }]),
+    new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i })
   ]
 };
